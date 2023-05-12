@@ -32,7 +32,17 @@ const text = document.querySelector(".home-hero-p").textContent;
 
 const typewriter = new Typewriter(tWrap, {
   loop: false,
-  delay: 75
+  delay: 75,
 });
 
 typewriter.typeString(text).start();
+
+const eventDates = [...document.querySelectorAll(".home-event-date")];
+
+eventDates.map((date) => {
+  if (
+    date.querySelector("[event-start]") == date.querySelector("[event-end]")
+  ) {
+    date.querySelector("[event-end]").remove();
+  }
+});
