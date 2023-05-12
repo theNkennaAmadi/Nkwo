@@ -36,3 +36,13 @@ const typewriter = new Typewriter(tWrap, {
 });
 
 typewriter.typeString(text).start();
+
+const eventDates = [...document.querySelectorAll(".home-event-date")];
+
+eventDates.map((date) => {
+  if (
+    date.querySelector("[event-start]").textContent === date.querySelector("[event-end]").textContent
+  ) {
+    date.querySelector("[event-end]").remove();
+  }
+});
